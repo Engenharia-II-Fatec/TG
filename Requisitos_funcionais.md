@@ -23,6 +23,7 @@
 | RF09 | Gestão de Pacotes | Criar planos de aulas e associar a alunos | Média |
 | RF10 | Acompanhamento de Evolução | Permitir acompanhamento do desempenho do aluno | Baixa |
 | RF11 | "Gameficação"/Lúdico | Gerar recompensas para o aluno a cada tarefa concluída | Baixa |
+| RF11 | Realizar pagamentos | Permitir que Responsáveis e alunos (acima de 18 anos) realizem pagamentos através do sistema | Baixa |
 
 ---
 
