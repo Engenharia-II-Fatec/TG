@@ -131,9 +131,9 @@ O sistema será dividido em módulos:
 
 ## 📚 Contexto Acadêmico
 
-Projeto desenvolvido para a disciplina de **Engenharia de Software I**, no curso de:
+Projeto desenvolvido para a disciplina de **Engenharia de Software II**, no curso de:
 
-🎓 Tecnologia em Análise e Desenvolvimento de Sistemas  
+🎓 Tecnologia em Análise e Desenvolvimento de Sistemas na FATEC-SOROCABA 
 
 ---
 
