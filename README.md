@@ -117,8 +117,6 @@ O sistema será dividido em módulos:
 
 ## 🛠️ Tecnologias (Previstas)
 
-> (Ajustar conforme o que vocês decidirem usar)
-
 - Frontend: React / React Native 
 - Backend: PHP / Laravel  
 - Banco de Dados: MySQL  
