@@ -95,6 +95,7 @@ O sistema foi pensado para atender diferentes perfis de usuários:
 
 ## 🚀 Funcionalidades Principais
 
+[Requisitos Funcionais](https://github.com/Engenharia-II-Fatec/TG/blob/main/Requisitos_funcionais.md)
 - ✅ Cadastro de alunos e responsáveis  
 - ✅ Gestão de professores  
 - ✅ Agenda integrada de aulas  
