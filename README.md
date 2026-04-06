@@ -87,6 +87,9 @@ O sistema foi pensado para atender diferentes perfis de usuários:
 - Dificuldade na gestão de pagamentos
 
 ---
+## 🔼 Casos De Uso
+[Link para os casos de uso](https://github.com/Engenharia-II-Fatec/TG/tree/main/P)
+---
 
 ## 🚀 Funcionalidades Principais
 
