@@ -88,7 +88,9 @@ O sistema foi pensado para atender diferentes perfis de usuários:
 
 ---
 ## 🔼 Casos De Uso
-[Link para os casos de uso](https://github.com/Engenharia-II-Fatec/TG/tree/main/P)
+
+[Link para os casos de uso](https://github.com/Engenharia-II-Fatec/TG/tree/main/CASOS%20DE%20USO)
+
 ---
 
 ## 🚀 Funcionalidades Principais
