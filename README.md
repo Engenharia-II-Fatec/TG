@@ -32,6 +32,7 @@ A aplicação visa resolver problemas operacionais enfrentados pela instituiçã
 ---
 
 ## 👥 Personas do Sistema
+[Link para as personas do sistema](https://github.com/Engenharia-II-Fatec/TG/tree/main/PERSONAS)
 
 O sistema foi pensado para atender diferentes perfis de usuários:
 
@@ -113,9 +114,9 @@ O sistema será dividido em módulos:
 
 > (Ajustar conforme o que vocês decidirem usar)
 
-- Frontend: React / HTML / CSS / JS  
-- Backend: Node.js / Java / Python  
-- Banco de Dados: MySQL / PostgreSQL  
+- Frontend: React / React Native 
+- Backend: PHP / Laravel  
+- Banco de Dados: MySQL  
 
 ---
 
