@@ -14,10 +14,9 @@
 | RF07 | Agendamento de Aula pelo Professor | Professor pode criar, editar e cancelar aulas e o sistema deve registrar a ação | Alta |
 | RF08 | Agendamento de Aulas pelo Aluno ou Responsável | Permitir o agendamento de aulas com base na disponibilidade do professsor | Alta |
 | RF09 | Notificações | Sistema deve notificar alunos sobre alterações de aulas | Média |
-| RF10 | Registro de Aulas | Professor registra aulas ministradas | Alta |
+| RF10 | Registro de Aulas Ministradas| Professor registra aulas ministradas e uma descrição do que foi feito nas aulas| Alta |
 | RF11 | Controle Financeiro | Registrar pagamentos, inadimplência e despesas | Alta |
 | RF12 | Dashboard Gerencial | Exibir relatórios de receita, despesas e lucro | Média |
-| RF13 | Vizualização da Agenda pelo Responsável ou Aluno| Permitir que o aluno responsável vizualize as aulas agendadas | Alta |
 
 ---
 
