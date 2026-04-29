@@ -6,13 +6,17 @@
 | ID | Requisito | Descrição | Prioridade |
 |----|----------|----------|------------|
 | RF01 | Cadastro de Alunos | Permitir cadastrar, editar e consultar dados de alunos e responsáveis | Alta |
-| RF02 | Gestão de Agenda | Permitir que professores registrem sua disponibilidade | Alta |
-| RF03 | Agendamento de Aulas | Permitir criação, edição e cancelamento de aulas | Alta |
-| RF04 | Cancelamento de Aula pelo Professor | Professor pode cancelar aulas e o sistema deve registrar a ação | Alta |
-| RF05 | Notificações | Sistema deve notificar alunos sobre alterações de aulas | Média |
-| RF06 | Registro de Aulas | Professor registra aulas ministradas | Alta |
-| RF07 | Controle Financeiro | Registrar pagamentos, inadimplência e despesas | Alta |
-| RF08 | Dashboard Gerencial | Exibir relatórios de receita, despesas e lucro | Média |
+| RF02 | Cadastro de Professor | Permitir cadastrar, editar e consultar dados de professores | Alta |
+| RF03 | Cadastro de Diciplina | Permitir cadastrar, editar e consultar dados de diciplinas | Alta |
+| RF04 | Cadastro de Planos de aula | Permitir cadastrar, editar e consultar dados de planos de aula | Alta |
+| RF05 | Gestão de Disponibilidade do Professor | Permitir que professores registrem sua disponibilidade | Alta |
+| RF06 | Agendamento de Aulas | Permitir criação, edição e cancelamento de aulas | Alta |
+| RF07 | Agendamento de Aula pelo Professor | Professor pode criar, editar e cancelar aulas e o sistema deve registrar a ação | Alta |
+| RF08 | Notificações | Sistema deve notificar alunos sobre alterações de aulas | Média |
+| RF09 | Registro de Aulas | Professor registra aulas ministradas | Alta |
+| RF10 | Controle Financeiro | Registrar pagamentos, inadimplência e despesas | Alta |
+| RF11 | Dashboard Gerencial | Exibir relatórios de receita, despesas e lucro | Média |
+| RF12 | Vizualização da Agenda pelo Responsável ou Aluno| Permitir que o aluno responsável vizualize as aulas agendadas | Alta |
 
 ---
 
