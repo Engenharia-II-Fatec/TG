@@ -36,24 +36,29 @@ A aplicação visa resolver problemas operacionais enfrentados pela instituiçã
 
 O sistema foi pensado para atender diferentes perfis de usuários:
 
-### 👨‍🎓 Aluno
+### 👨‍🎓 Aluno dependente
 - Participa das aulas de reforço
 - Depende de uma agenda organizada
 - Necessita acompanhamento do desempenho
 
+### 👨‍🎓 Aluno independente
+- Participa das aulas de reforço
+- Depende de uma agenda organizada
+- Realiza os próprios pagamentos
+- Acompanha a própria evolução
+
 ### 👨‍👩‍👧 Responsável
 - Realiza pagamentos
-- Agenda aulas
-- Acompanha evolução do aluno
+- Acompanha evolução do aluno dependente
 
 ### 👩‍🏫 Professor
 - Define disponibilidade de horários
 - Registra aulas ministradas
-- Pode cancelar aulas quando necessário
+- Pode agendar, editar e cancelar aulas quando necessário
 
 ### 🧑‍💼 Secretária
 - Realiza cadastros
-- Agenda aulas
+- Agenda, edita e cancela aulas
 - Faz atendimento ao cliente
 - Gerencia comunicação com alunos/responsáveis
 
@@ -99,7 +104,7 @@ O sistema foi pensado para atender diferentes perfis de usuários:
 - ✅ Cadastro de alunos e responsáveis  
 - ✅ Gestão de professores  
 - ✅ Agenda integrada de aulas  
-- ✅ Cancelamento de aulas por professores  
+- ✅ Agendamento de aulas por professores  
 - ✅ Controle financeiro (receitas e despesas)  
 - ✅ Relatórios e dashboards   
 
