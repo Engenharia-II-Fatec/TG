@@ -162,7 +162,7 @@ Projeto desenvolvido para a disciplina de **Engenharia de Software II**, no curs
 ## 👨‍💻 Equipe
 
 - João Roberto Meirinho Nunes  
-- Maria Fernanda Machado  
+- [Maria Fernanda Machado](https://github.com/mafemachado)  
 - Pedro José Vanzella 
 - Thaís Duarte De Souza
 - Carolina Campos Leme De Barros
