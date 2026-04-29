@@ -12,11 +12,12 @@
 | RF05 | Gestão de Disponibilidade do Professor | Permitir que professores registrem sua disponibilidade | Alta |
 | RF06 | Agendamento de Aulas | Permitir criação, edição e cancelamento de aulas | Alta |
 | RF07 | Agendamento de Aula pelo Professor | Professor pode criar, editar e cancelar aulas e o sistema deve registrar a ação | Alta |
-| RF08 | Notificações | Sistema deve notificar alunos sobre alterações de aulas | Média |
-| RF09 | Registro de Aulas | Professor registra aulas ministradas | Alta |
-| RF10 | Controle Financeiro | Registrar pagamentos, inadimplência e despesas | Alta |
-| RF11 | Dashboard Gerencial | Exibir relatórios de receita, despesas e lucro | Média |
-| RF12 | Vizualização da Agenda pelo Responsável ou Aluno| Permitir que o aluno responsável vizualize as aulas agendadas | Alta |
+| RF08 | Agendamento de Aulas pelo Aluno ou Responsável | Permitir o agendamento de aulas com base na disponibilidade do professsor | Alta |
+| RF09 | Notificações | Sistema deve notificar alunos sobre alterações de aulas | Média |
+| RF10 | Registro de Aulas | Professor registra aulas ministradas | Alta |
+| RF11 | Controle Financeiro | Registrar pagamentos, inadimplência e despesas | Alta |
+| RF12 | Dashboard Gerencial | Exibir relatórios de receita, despesas e lucro | Média |
+| RF13 | Vizualização da Agenda pelo Responsável ou Aluno| Permitir que o aluno responsável vizualize as aulas agendadas | Alta |
 
 ---
 
