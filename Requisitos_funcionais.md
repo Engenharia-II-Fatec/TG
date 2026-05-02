@@ -16,13 +16,6 @@
 | RF09 | Registro de Aulas Ministradas| Professor registra aulas ministradas e uma descrição do que foi feito nas aulas| Alta |
 | RF10 | Controle Financeiro | Registrar pagamentos, inadimplência e despesas | Alta |
 | RF11 | Dashboard Gerencial | Exibir relatórios de receita, despesas e lucro | Média |
-
----
-
-## Sugestões de Funcionalidades
-
-| ID | Requisito | Descrição | Prioridade |
-|----|----------|----------|------------|
 | RF12 | Realizar pagamentos | Permitir que Responsáveis e alunos (acima de 18 anos) realizem pagamentos através do sistema | Baixa |
 
 ---
