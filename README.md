@@ -19,6 +19,8 @@ A aplicação visa resolver problemas operacionais enfrentados pela instituiçã
 
 💡 Nosso objetivo é criar um **sistema centralizado, eficiente e intuitivo**, que automatize processos e melhore a tomada de decisão.
 
+[Link do Vídeo do projeto parcial](https://youtu.be/l-5SJZ7naeI?si=VDSvjtUmH6Y0ukDO)
+
 ---
 
 ## 🎯 Objetivos do Sistema
