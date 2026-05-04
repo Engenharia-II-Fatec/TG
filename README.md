@@ -2,7 +2,7 @@
 
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 ![Projeto Acadêmico](https://img.shields.io/badge/projeto-TCC-blue)
-![Engenharia de Software](https://img.shields.io/badge/Engenharia%20de%20Software-I-green)
+![Engenharia de Software](https://img.shields.io/badge/Engenharia%20de%20Software-II-green)
 
 ---
 
