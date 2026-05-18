@@ -1,0 +1,47 @@
+name: Generate PlantUML Diagrams
+
+on:
+  push:
+    paths:
+      - '**.puml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-diagrams:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Clonar repositório
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Instalar dependências
+      - name: Install PlantUML
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y plantuml graphviz
+
+      # 3. Gerar diagramas (.svg)
+      - name: Generate diagrams
+        run: |
+          find . -name "*.puml" -exec plantuml -tpng {} \;
+
+      # 4. Criar Pull Request automático
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Auto-generate PlantUML diagrams
+          branch: auto/plantuml-diagrams
+          title: Atualização automática de diagramas
+          body: |
+            Este PR foi criado automaticamente pelo GitHub Actions.
+
+            ✔️ Diagramas PlantUML atualizados  
+            ✔️ Arquivos gerados em PNG
+            
+          delete-branch: true

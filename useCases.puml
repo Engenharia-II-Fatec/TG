@@ -1,0 +1,69 @@
+@startuml usecases
+left to right direction
+
+' --- ATORES ---
+' Atores do lado esquerdo
+actor "Ator Esquerda 1" as AtorEsq1
+actor "Ator Esquerda 2" as AtorEsq2
+
+' Ator Superior e Inferior
+actor "Ator Superior" as AtorSup
+actor "Ator Inferior" as AtorInf
+
+' Ator do lado direito
+actor "Ator Direita" as AtorDir
+
+' --- LIMITE DO SISTEMA ---
+rectangle "Sistema" {
+    
+    ' Casos de Uso - Coluna Esquerda
+    usecase "Caso de Uso 1" as UC1
+    usecase "Caso de Uso 2" as UC2
+    usecase "Caso de Uso 3" as UC3
+    usecase "Caso de Uso 4" as UC4
+    usecase "Caso de Uso 5" as UC5
+    usecase "Caso de Uso 6" as UC6
+    
+    ' Casos de Uso - Coluna Centro/Direita
+    usecase "Caso de Uso 7" as UC7
+    usecase "Caso de Uso 8" as UC8
+    usecase "Caso de Uso 9" as UC9
+    usecase "Caso de Uso 10" as UC10
+    usecase "Caso de Uso 11" as UC11
+    
+    ' Casos de uso avulsos que recebem setas tracejadas (includes/extends)
+    usecase "Caso de Uso Auxiliar A" as UCAuxA
+    usecase "Caso de Uso Auxiliar B" as UCAuxB
+}
+
+' --- RELACIONAMENTOS (ASSOCIAÇÕES) ---
+' Nota: As linhas abaixo simulam os traços principais vistos na imagem. 
+' Ajuste conforme a necessidade real do seu diagrama.
+
+AtorEsq1 --> UC1
+AtorEsq1 --> UC2
+AtorEsq1 --> UC7
+
+AtorEsq2 --> UC3
+AtorEsq2 --> UC4
+
+AtorSup --> UC7
+AtorSup --> UC8
+
+AtorInf --> UC9
+AtorInf --> UC10
+
+UC9 --> AtorDir
+UC11 --> AtorDir
+
+' --- RELACIONAMENTOS ESPECIAIS (INCLUDE / EXTEND) ---
+' Representam as setas tracejadas com << ... >> na sua imagem
+UC5 .> UCAuxA : <<include>>
+UC10 .> UCAuxB : <<extend>>
+
+' --- GENERALIZAÇÃO DE ATORES (Se houver) ---
+' Há setas com triângulos vazios na imagem que parecem ligar atores, 
+' ou atores a casos de uso. Caso um ator herde de outro, use a sintaxe abaixo:
+' AtorEsq2 --|> AtorEsq1
+
+@enduml
