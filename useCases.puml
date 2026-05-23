@@ -3,62 +3,83 @@ left to right direction
 
 ' --- ATORES ---
 ' Atores do lado esquerdo
-actor "Ator Esquerda 1" as AtorEsq1
-actor "Ator Esquerda 2" as AtorEsq2
+actor "Administrador" as Admin
+actor "Professor" as Professor
 
 ' Ator Superior e Inferior
-actor "Ator Superior" as AtorSup
-actor "Ator Inferior" as AtorInf
+actor "Aluno" as Aluno
+actor "Responsável" as Responsavel
 
 ' Ator do lado direito
-actor "Ator Direita" as AtorDir
+actor "Secretaria" as Secretaria
 
 ' --- LIMITE DO SISTEMA ---
 rectangle "Sistema" {
     
     ' Casos de Uso - Coluna Esquerda
-    usecase "Caso de Uso 1" as UC1
-    usecase "Caso de Uso 2" as UC2
-    usecase "Caso de Uso 3" as UC3
-    usecase "Caso de Uso 4" as UC4
-    usecase "Caso de Uso 5" as UC5
-    usecase "Caso de Uso 6" as UC6
+    usecase "Realizar Pagamento" as UC1
+    usecase "Acompanhar evolução do aluno" as UC2
+    usecase "Agendar aula" as UC3
+    usecase "Visualizar agenda de aula" as UC4
+    usecase "Cadastrar Disciplina" as UC5
+    usecase "Cadastrar plano de aula" as UC6
     
     ' Casos de Uso - Coluna Centro/Direita
-    usecase "Caso de Uso 7" as UC7
-    usecase "Caso de Uso 8" as UC8
-    usecase "Caso de Uso 9" as UC9
-    usecase "Caso de Uso 10" as UC10
-    usecase "Caso de Uso 11" as UC11
+    usecase "Cadastrar responsável" as UC7
+    usecase "Cadastrar Aluno" as UC8
+    usecase "Cadastrar Professor" as UC9
+    usecase "Gerenciar Financeiro" as UC10
+    usecase "Gerenciar Dashboard Gerencial" as UC11
+    usecase "Responder questionário" as UC12
+    usecase "Gerenciar disponibilidade de horário" as UC13
+    usecase "Cadastrar questionário" as UC14
+    usecase "Cancelar aula" as UC15
     
     ' Casos de uso avulsos que recebem setas tracejadas (includes/extends)
-    usecase "Caso de Uso Auxiliar A" as UCAuxA
-    usecase "Caso de Uso Auxiliar B" as UCAuxB
+    usecase "Enviar notificação de cancelamento" as UCAuxA
+    usecase "Gerar relatório" as UCAuxB
+
 }
 
 ' --- RELACIONAMENTOS (ASSOCIAÇÕES) ---
 ' Nota: As linhas abaixo simulam os traços principais vistos na imagem. 
 ' Ajuste conforme a necessidade real do seu diagrama.
 
-AtorEsq1 --> UC1
-AtorEsq1 --> UC2
-AtorEsq1 --> UC7
+Responsavel --> UC1
+Responsavel --> UC2
+Responsavel --> UC4
 
-AtorEsq2 --> UC3
-AtorEsq2 --> UC4
+Aluno --> UC1
+Aluno --> UC2
+Aluno --> UC4
+Aluno --> UC12
+Aluno --> UC15
 
-AtorSup --> UC7
-AtorSup --> UC8
+Professor --> UC2
+Professor --> UC13
+Professor --> UC14
+Professor --> UC15
 
-AtorInf --> UC9
-AtorInf --> UC10
+Secretaria --> UC3
+Secretaria --> UC7
+Secretaria --> UC8
+Secretaria --> UC10
+Secretaria --> UC11
 
-UC9 --> AtorDir
-UC11 --> AtorDir
+Admin --> UC4
+Admin --> UC5
+Admin --> UC6
+Admin --> UC7
+Admin --> UC8
+Admin --> UC9
+Admin --> UC10
+Admin --> UC11
+Admin --> UC13
+Admin --> UC14
 
 ' --- RELACIONAMENTOS ESPECIAIS (INCLUDE / EXTEND) ---
 ' Representam as setas tracejadas com << ... >> na sua imagem
-UC5 .> UCAuxA : <<include>>
+UC15 <. UCAuxA : <<include>>
 UC10 .> UCAuxB : <<extend>>
 
 ' --- GENERALIZAÇÃO DE ATORES (Se houver) ---
