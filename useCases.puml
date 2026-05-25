@@ -46,8 +46,8 @@ rectangle "Sistema" {
 ' Ajuste conforme a necessidade real do seu diagrama.
 
 Responsavel --> UC1
-Responsavel --> UC2
-Responsavel --> UC4
+UC2 <-- Responsavel
+UC4 <-- Responsavel
 
 Aluno --> UC1
 Aluno --> UC2

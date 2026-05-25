@@ -1,0 +1,178 @@
+@startuml
+' Configurações visuais opcionais para remover os ícones de (C)lass e deixar mais fiel ao seu desenho
+skinparam classAttributeIconSize 0
+hide circle
+
+class Administrador {
+  Id_Adm
+  nome
+  login
+  senha
+}
+
+class Usuário {
+  Id_Usuario : int
+  nome : string
+  cpf : string
+  rg : string
+  e-mail : string
+  telefone : string
+  senha : string
+  cep : string
+  logradouro : string
+  numero : int
+  complemento : string
+  bairro : string
+  cidade : string
+  uf : string
+}
+
+class Secretária {
+  Id_Sec
+}
+
+class Responsável {
+  id_Resp
+}
+
+class Aluno {
+  Id_Aluno : int
+  Nivel_escolar : String
+  Instituicao_de_ensino : string
+}
+
+class Professor {
+  Id_Prof : int
+  formacao : string
+  curriculo : string
+}
+
+class "Registro de Aula" as RegistroDeAula {
+  Id_Aula : int
+  data : date
+  hora_Inicio : time
+  hora_Termino : time
+  duracao : int
+  conteudo : String
+  licao_de_Casa : String
+  desemp_Individual
+}
+
+class "Agenda Disponibilidade" as AgendaDisponibilidade {
+  id_disp : int
+  data : date
+  horarios : List<time>
+}
+
+class Despesa {
+  Id_despesa : int
+  titulo : string
+  valor : float
+  categoria : string
+  status : string
+  descricao : string
+  arquivo : string
+}
+
+class "Agendamento de Aula" as AgendamentoDeAula {
+  Id_Prof : int
+  data : date
+  horario : time
+  cancelada : bool
+}
+
+class Pagamento {
+  nome_Pagador : String
+  valor : float
+  categoria : String
+  data_Pagamento : date
+  status : bool
+}
+
+class "Planos de aulas" as PlanosDeAulas {
+  id_plano : int
+  nome : string
+  status : bool
+  descrição : String
+  valor_mensal : float
+  num_aulas : int
+  recursos : List<String>
+  icone : String
+}
+
+class Cartao {
+  nome_Cartao : String
+  numero_Cartao : int
+  validade : date
+  codigo_cvv : int
+  parcelas : int
+}
+
+class Pix {
+  chave_Pix : String
+  qrcode : String
+  copia_e_Cola : String
+}
+
+class Boleto {
+  cod_de_Barras : String
+  data_Vencimento : date
+}
+
+class Questionario {
+  id_questionario : int
+  titulo : string
+  nivel_dificuldade : int
+  embaralhar_perguntas : bool
+  embaralhar_alternativas : bool
+}
+
+class Questao {
+  id_questao : int
+  enunciado : string
+}
+
+class Alternativa {
+  id_alternativa : int
+  descricao : string
+  eh_correta : bool
+}
+
+class Disciplinas {
+  Id_Disciplina : int
+  Categoria : String
+  Descrição : String
+}
+
+' === Heranças ===
+Usuário <|-- Secretária
+Usuário <|-- Responsável
+Usuário <|-- Aluno
+Usuário <|-- Professor
+
+Pagamento <|-- Cartao
+Pagamento <|-- Pix
+Pagamento <|-- Boleto
+
+' === Relacionamentos e Multiplicidades ===
+Secretária --> Despesa
+
+Responsável -- Aluno
+Responsável -- Pagamento
+
+Pagamento -- PlanosDeAulas
+
+Aluno -- AgendamentoDeAula
+Aluno "0..n" -- "0..1" PlanosDeAulas
+Aluno "0..n" -- Questionario
+
+Professor -- RegistroDeAula
+Professor -- AgendaDisponibilidade
+Professor "0..n" -- Questionario
+Professor "0..n" -- "0..1" Disciplinas
+
+Questionario *-- "1..n" Questao
+Questao *-- "1..n" Alternativa
+Questionario -- "0..1" Disciplinas
+
+@enduml
