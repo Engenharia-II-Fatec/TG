@@ -7,7 +7,7 @@ actor "Administrador" as Admin
 actor "Professor" as Professor
 
 ' Ator Superior e Inferior
-actor "Aluno" as Aluno
+actor "Alunos" as Aluno
 actor "Responsável" as Responsavel
 
 ' Ator do lado direito
