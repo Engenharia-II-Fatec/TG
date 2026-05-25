@@ -87,4 +87,4 @@ UC10 .> UCAuxB : <<extend>>
 ' ou atores a casos de uso. Caso um ator herde de outro, use a sintaxe abaixo:
 ' AtorEsq2 --|> AtorEsq1
 
-@enduml
+@enduml 
