@@ -7,7 +7,7 @@ actor "Administrador" as Admin
 actor "Professor" as Professor
 
 ' Ator Superior e Inferior
-actor "Alunos" as Aluno
+actor "Aluno" as Aluno
 actor "Responsável" as Responsavel
 
 ' Ator do lado direito
@@ -33,7 +33,7 @@ rectangle "Sistema" {
     usecase "Responder questionário" as UC12
     usecase "Gerenciar disponibilidade de horário" as UC13
     usecase "Cadastrar questionário" as UC14
-    usecase "Cancelar aula" as UC15
+    usecas Ue "Cancelar aula" as UC15
     
     ' Casos de uso avulsos que recebem setas tracejadas (includes/extends)
     usecase "Enviar notificação de cancelamento" as UCAuxA
@@ -55,10 +55,10 @@ Aluno --> UC4
 Aluno --> UC12
 Aluno --> UC15
 
-Professor --> UC2
-Professor --> UC13
-Professor --> UC14
-Professor --> UC15
+UC2  <-- Professor
+UC13 <-- Professor
+UC14 <-- Professor
+UC15 <-- Professor
 
 Secretaria --> UC3
 Secretaria --> UC7
