@@ -33,7 +33,7 @@ rectangle "Sistema" {
     usecase "Responder questionários" as UC12
     usecase "Gerenciar disponibilidade de horário" as UC13
     usecase "Cadastrar questionário" as UC14
-    usecase "Cancelar aula" as UC15
+    usecase "Cancelar aulas" as UC15
     
     ' Casos de uso avulsos que recebem setas tracejadas (includes/extends)
     usecase "Enviar notificação de cancelamento" as UCAuxA
