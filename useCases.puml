@@ -30,10 +30,10 @@ rectangle "Sistema" {
     usecase "Cadastrar Professor" as UC9
     usecase "Gerenciar Financeiro" as UC10
     usecase "Gerenciar Dashboard Gerencial" as UC11
-    usecase "Responder questionários" as UC12
+    usecase "Responder questionário" as UC12
     usecase "Gerenciar disponibilidade de horário" as UC13
     usecase "Cadastrar questionário" as UC14
-    usecase "Cancelar aulas" as UC15
+    usecase "Cancelar aula" as UC15
     
     ' Casos de uso avulsos que recebem setas tracejadas (includes/extends)
     usecase "Enviar notificação de cancelamento" as UCAuxA
