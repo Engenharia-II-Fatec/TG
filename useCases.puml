@@ -14,7 +14,7 @@ actor "Responsável" as Responsavel
 actor "Secretaria" as Secretaria
 
 ' --- LIMITE DO SISTEMA ---
-rectangle "Sistema" {
+rectangle "Sistema Espaço Lição de Casa" {
     
     ' Casos de Uso - Coluna Esquerda
     usecase "Realizar Pagamento" as UC1
@@ -33,18 +33,19 @@ rectangle "Sistema" {
     usecase "Responder questionário" as UC12
     usecase "Gerenciar disponibilidade de horário" as UC13
     usecase "Cadastrar questionário" as UC14
-    usecase "Cancelar aula" as UC15
     
-    ' Casos de uso avulsos que recebem setas tracejadas (includes/extends)
-    usecase "Enviar notificação de cancelamento" as UCAuxA
+    ' Agrupamento para forçar a proximidade visual
+    together {
+        usecase "Cancelar aula" as UC15
+        usecase "Enviar notificação de cancelamento" as UCAuxA
+    }
+    
+    ' Casos de uso avulsos
     usecase "Gerar relatório" as UCAuxB
 
 }
 
 ' --- RELACIONAMENTOS (ASSOCIAÇÕES) ---
-' Nota: As linhas abaixo simulam os traços principais vistos na imagem. 
-' Ajuste conforme a necessidade real do seu diagrama.
-
 Responsavel --> UC1
 UC2 <-- Responsavel
 UC4 <-- Responsavel
@@ -78,13 +79,8 @@ Admin --> UC13
 Admin --> UC14
 
 ' --- RELACIONAMENTOS ESPECIAIS (INCLUDE / EXTEND) ---
-' Representam as setas tracejadas com << ... >> na sua imagem
-UC15 <. UCAuxA : <<include>>
-UC10 .> UCAuxB : <<extend>>
+' Utilizando a notação pontilhada padrão (..>) para melhorar o fluxo do layout
+UC15 ..> UCAuxA : <<include>>
+UC10 ..> UCAuxB : <<extend>>
 
-' --- GENERALIZAÇÃO DE ATORES (Se houver) ---
-' Há setas com triângulos vazios na imagem que parecem ligar atores, 
-' ou atores a casos de uso. Caso um ator herde de outro, use a sintaxe abaixo:
-' AtorEsq2 --|> AtorEsq1
-
-@enduml 
+@enduml

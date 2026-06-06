@@ -1,23 +1,22 @@
 @startuml
-' Configurações visuais opcionais para remover os ícones de (C)lass e deixar mais fiel ao seu desenho
 skinparam classAttributeIconSize 0
 hide circle
 
-class Administrador {
-  Id_Adm
-  nome
-  login
-  senha
-}
-
-class Usuário {
+' Class Base de Autenticação - Comum a TODOS do sistema
+abstract class Usuario {
   Id_Usuario : int
   nome : string
+  login : string
+  senha : string
+  tipo_usuario : TipoUsuario
+}
+
+' Classe Intermediária apenas para quem precisa de cadastro completo
+abstract class PerfilCompleto {
   cpf : string
   rg : string
-  e-mail : string
+  email : string
   telefone : string
-  senha : string
   cep : string
   logradouro : string
   numero : int
@@ -27,22 +26,24 @@ class Usuário {
   uf : string
 }
 
+class Administrador {
+  ' Herda apenas ID, Nome, Login, Senha e TipoUsuario
+}
+
 class Secretária {
-  Id_Sec
+  ' Herda tudo de Usuario + PerfilCompleto
 }
 
 class Responsável {
-  id_Resp
+  ' Herda tudo de Usuario + PerfilCompleto
 }
 
 class Aluno {
-  Id_Aluno : int
   Nivel_escolar : String
   Instituicao_de_ensino : string
 }
 
 class Professor {
-  Id_Prof : int
   formacao : string
   curriculo : string
 }
@@ -54,8 +55,8 @@ class "Registro de Aula" as RegistroDeAula {
   hora_Termino : time
   duracao : int
   conteudo : String
-  licao_de_Casa : String
-  desemp_Individual
+  licao_de_casa : String
+  desemp_Individual : String
 }
 
 class "Agenda Disponibilidade" as AgendaDisponibilidade {
@@ -75,13 +76,14 @@ class Despesa {
 }
 
 class "Agendamento de Aula" as AgendamentoDeAula {
-  Id_Prof : int
+  Id_Agendamento : int
   data : date
   horario : time
   cancelada : bool
 }
 
 class Pagamento {
+  Id_pagamento : int
   nome_Pagador : String
   valor : float
   categoria : String
@@ -93,7 +95,7 @@ class "Planos de aulas" as PlanosDeAulas {
   id_plano : int
   nome : string
   status : bool
-  descrição : String
+  descricao : String
   valor_mensal : float
   num_aulas : int
   recursos : List<String>
@@ -141,38 +143,41 @@ class Alternativa {
 class Disciplinas {
   Id_Disciplina : int
   Categoria : String
-  Descrição : String
+  Descricao : String
 }
 
-' === Heranças ===
-Usuário <|-- Secretária
-Usuário <|-- Responsável
-Usuário <|-- Aluno
-Usuário <|-- Professor
+' === Hierarquia de Herança Corrigida ===
+Usuario <|-- Administrador
+Usuario <|-- PerfilCompleto
+
+PerfilCompleto <|-- Secretária
+PerfilCompleto <|-- Responsável
+PerfilCompleto <|-- Aluno
+PerfilCompleto <|-- Professor
 
 Pagamento <|-- Cartao
 Pagamento <|-- Pix
 Pagamento <|-- Boleto
 
 ' === Relacionamentos e Multiplicidades ===
-Secretária --> Despesa
+Responsável "1" -- "1..*" Aluno : gerencia
+Secretária "1" -- "0..*" Despesa : registra
 
-Responsável -- Aluno
-Responsável -- Pagamento
+Aluno "1" -- "0..*" Pagamento : realiza
+Aluno "*" -- "0..1" PlanosDeAulas : assina
+Aluno "1..*" -- "*" AgendamentoDeAula : participa
+Aluno "1" -- "*" Questionario : responde
 
-Pagamento -- PlanosDeAulas
+Professor "1" -- "*" RegistroDeAula : preenche
+Professor "1" *-- "1" AgendaDisponibilidade : possui
+Professor "1" --> "*" Questionario : elabora
+Professor "*" -- "*" Disciplinas : leciona
 
-Aluno -- AgendamentoDeAula
-Aluno "0..n" -- "0..1" PlanosDeAulas
-Aluno "0..n" -- Questionario
+AgendamentoDeAula "*" --> "1" Professor : alocado para
+Pagamento "*" -- "0..1" PlanosDeAulas : referente a
 
-Professor -- RegistroDeAula
-Professor -- AgendaDisponibilidade
-Professor "0..n" -- Questionario
-Professor "0..n" -- "0..1" Disciplinas
-
-Questionario *-- "1..n" Questao
-Questao *-- "1..n" Alternativa
-Questionario -- "0..1" Disciplinas
+Questionario "1" *-- "1..*" Questao : contem
+Questao "1" *-- "1..*" Alternativa : possui
+Questionario "*" --> "0..1" Disciplinas : pertence a
 
 @enduml
