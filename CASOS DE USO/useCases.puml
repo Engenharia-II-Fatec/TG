@@ -52,6 +52,7 @@ UC4 <-- Responsavel
 
 Aluno --> UC1
 Aluno --> UC2
+Aluno --> UC3
 Aluno --> UC4
 Aluno --> UC12
 Aluno --> UC15
