@@ -1,0 +1,267 @@
+@startuml
+' Configurações Visuais
+hide circle
+skinparam linetype ortho
+skinparam EntityBackgroundColor #f9f9f9
+skinparam EntityBorderColor #333333
+
+' ================= TABELAS DE USUÁRIO E PERFIL =================
+
+entity "Usuarios" as Usuarios {
+  * id_usuario : int <<PK>>
+  --
+  nome : varchar
+  login : varchar
+  senha : varchar
+  tipo_usuario : varchar
+}
+
+entity "Perfis_Completos" as Perfis {
+  * id_perfil : int <<PK>>
+  --
+  id_usuario : int <<FK>>
+  cpf : varchar
+  rg : varchar
+  email : varchar
+  telefone : varchar
+  cep : varchar
+  logradouro : varchar
+  numero : int
+  complemento : varchar
+  bairro : varchar
+  cidade : varchar
+  uf : varchar
+}
+
+entity "Administradores" as Administradores {
+  * id_admin : int <<PK>>
+  --
+  id_usuario : int <<FK>>
+}
+
+entity "Secretarias" as Secretarias {
+  * id_secretaria : int <<PK>>
+  --
+  id_usuario : int <<FK>>
+}
+
+entity "Responsaveis" as Responsaveis {
+  * id_responsavel : int <<PK>>
+  --
+  id_usuario : int <<FK>>
+}
+
+entity "Alunos" as Alunos {
+  * id_aluno : int <<PK>>
+  --
+  id_usuario : int <<FK>>
+  id_responsavel : int <<FK>>
+  id_plano : int <<FK>> <<null>>
+  nivel_escolar : varchar
+  instituicao_de_ensino : varchar
+}
+
+entity "Professores" as Professores {
+  * id_professor : int <<PK>>
+  --
+  id_usuario : int <<FK>>
+  formacao : text
+  curriculo : text
+}
+
+' ================= TABELAS DE AULA E AGENDAMENTO =================
+
+entity "Planos_De_Aulas" as Planos {
+  * id_plano : int <<PK>>
+  --
+  nome : varchar
+  status : boolean
+  descricao : text
+  valor_mensal : decimal
+  num_aulas : int
+  recursos : json
+  icone : varchar
+}
+
+entity "Agendamentos_De_Aula" as Agendamentos {
+  * id_agendamento : int <<PK>>
+  --
+  id_professor : int <<FK>>
+  data : date
+  horario : time
+  cancelada : boolean
+}
+
+entity "Aluno_Agendamento" as AlunoAgendamento {
+  * id_aluno : int <<FK>>
+  * id_agendamento : int <<FK>>
+}
+
+entity "Registros_De_Aula" as Registros {
+  * id_aula : int <<PK>>
+  --
+  id_professor : int <<FK>>
+  data : date
+  hora_inicio : time
+  hora_termino : time
+  duracao : int
+  conteudo : text
+  licao_de_casa : text
+  desemp_individual : text
+}
+
+entity "Agendas_Disponibilidade" as Agendas {
+  * id_disp : int <<PK>>
+  --
+  id_professor : int <<FK>>
+  data : date
+  horarios : json
+}
+
+' ================= TABELAS FINANCEIRAS =================
+
+entity "Despesas" as Despesas {
+  * id_despesa : int <<PK>>
+  --
+  id_secretaria : int <<FK>>
+  titulo : varchar
+  valor : decimal
+  categoria : varchar
+  status : varchar
+  descricao : text
+  arquivo : varchar
+}
+
+entity "Pagamentos" as Pagamentos {
+  * id_pagamento : int <<PK>>
+  --
+  id_aluno : int <<FK>>
+  id_plano : int <<FK>> <<null>>
+  nome_pagador : varchar
+  valor : decimal
+  categoria : varchar
+  data_pagamento : date
+  status : boolean
+  tipo_metodo : varchar
+}
+
+entity "Pagamentos_Cartao" as Cartao {
+  * id_cartao : int <<PK>>
+  --
+  id_pagamento : int <<FK>>
+  nome_cartao : varchar
+  numero_cartao : int
+  validade : date
+  codigo_cvv : int
+  parcelas : int
+}
+
+entity "Pagamentos_Pix" as Pix {
+  * id_pix : int <<PK>>
+  --
+  id_pagamento : int <<FK>>
+  chave_pix : varchar
+  qrcode : text
+  copia_e_cola : text
+}
+
+entity "Pagamentos_Boleto" as Boleto {
+  * id_boleto : int <<PK>>
+  --
+  id_pagamento : int <<FK>>
+  cod_de_barras : varchar
+  data_vencimento : date
+}
+
+' ================= TABELAS DE QUESTIONÁRIOS =================
+
+entity "Disciplinas" as Disciplinas {
+  * id_disciplina : int <<PK>>
+  --
+  categoria : varchar
+  descricao : text
+}
+
+entity "Professor_Disciplina" as ProfessorDisciplina {
+  * id_professor : int <<FK>>
+  * id_disciplina : int <<FK>>
+}
+
+entity "Questionarios" as Questionarios {
+  * id_questionario : int <<PK>>
+  --
+  id_professor : int <<FK>>
+  id_disciplina : int <<FK>> <<null>>
+  titulo : varchar
+  nivel_dificuldade : int
+  embaralhar_perguntas : boolean
+  embaralhar_alternativas : boolean
+}
+
+entity "Aluno_Questionario" as AlunoQuestionario {
+  * id_aluno : int <<FK>>
+  * id_questionario : int <<FK>>
+  --
+  data_resposta : datetime
+  nota : decimal
+}
+
+entity "Questoes" as Questoes {
+  * id_questao : int <<PK>>
+  --
+  id_questionario : int <<FK>>
+  enunciado : text
+}
+
+entity "Alternativas" as Alternativas {
+  * id_alternativa : int <<PK>>
+  --
+  id_questao : int <<FK>>
+  descricao : text
+  eh_correta : boolean
+}
+
+' ================= RELACIONAMENTOS =================
+
+' Herança e Perfis
+Usuarios ||--o| Perfis
+Usuarios ||--o| Administradores
+Usuarios ||--o| Responsaveis
+Usuarios ||--o| Alunos
+Usuarios ||--o| Professores
+Usuarios ||--o| Secretarias
+
+' Gestão Administrativa
+Responsaveis ||--o{ Alunos : "gerencia"
+Secretarias ||--o{ Despesas : "registra"
+
+' Planos e Agendamentos
+Alunos }o--|| Planos : "assina"
+Alunos ||--o{ AlunoAgendamento
+Agendamentos ||--o{ AlunoAgendamento
+Agendamentos }o--|| Professores : "alocado para"
+
+' Aulas e Disponibilidade
+Professores ||--o{ Registros : "preenche"
+Professores ||--|| Agendas : "possui"
+
+' Financeiro
+Alunos ||--o{ Pagamentos : "realiza"
+Planos |o--o{ Pagamentos : "referente a"
+Pagamentos ||--o| Cartao
+Pagamentos ||--o| Pix
+Pagamentos ||--o| Boleto
+
+' Disciplinas e Avaliações
+Professores ||--o{ ProfessorDisciplina
+Disciplinas ||--o{ ProfessorDisciplina
+
+Professores ||--o{ Questionarios : "elabora"
+Questionarios }o--o| Disciplinas : "pertence a"
+Questionarios ||--|{ Questoes : "contem"
+Questoes ||--|{ Alternativas : "possui"
+
+Alunos ||--o{ AlunoQuestionario
+Questionarios ||--o{ AlunoQuestionario
+
+@enduml
