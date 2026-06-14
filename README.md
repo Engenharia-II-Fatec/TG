@@ -96,10 +96,14 @@ O sistema foi pensado para atender diferentes perfis de usuários:
 ---
 ## 🔼 Casos De Uso
 
-[Link para os casos de uso](https://github.com/Engenharia-II-Fatec/TG/tree/main/CASOS%20DE%20USO)
+[Link para os casos de uso](https://github.com/Engenharia-II-Fatec/TG/blob/main/CASOS%20DE%20USO/usecases.png)
 
 ---
+## 🔼 Diagrama De Classes
 
+[Link para o diagrama de classes](https://github.com/Engenharia-II-Fatec/TG/blob/main/DIAGRAMA%20DE%20CLASSES/er.png)
+
+---
 ## 🚀 Funcionalidades Principais
 
 [Requisitos Funcionais](https://github.com/Engenharia-II-Fatec/TG/blob/main/Requisitos_funcionais.md)
