@@ -104,6 +104,15 @@ O sistema foi pensado para atender diferentes perfis de usuários:
 [Link para o diagrama de classes](https://github.com/Engenharia-II-Fatec/TG/blob/main/DIAGRAMA%20DE%20CLASSES/er.png)
 
 ---
+## 🔼 Diagrama Entidade Relacionamento
+[Link para o diagrama entidade relacionamento](https://github.com/Engenharia-II-Fatec/TG/blob/main/DIAGRAMA%20ENTIDADE%20RELACIONAMENTO/der.png)
+
+---
+## 🔼 Documento de Visão
+[Link para o documento de visão](https://github.com/Engenharia-II-Fatec/TG/blob/main/DOCUMENTO%20DE%20VIS%C3%83O/DOCUMENTO%20DE%20VIS%C3%83O.pdf)
+
+---
+
 ## 🚀 Funcionalidades Principais
 
 [Requisitos Funcionais](https://github.com/Engenharia-II-Fatec/TG/blob/main/Requisitos_funcionais.md)
