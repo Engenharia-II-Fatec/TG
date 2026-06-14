@@ -170,7 +170,7 @@ Projeto desenvolvido para a disciplina de **Engenharia de Software II**, no curs
 
 ## 💻Protótipo
 
-[Protótipo](https://stitch.withgoogle.com/projects/11870486924156332097) desenvolvido em conjunto no stitch
+[Protótipo](https://stitch.withgoogle.com/projects/9474755268670349591) desenvolvido em conjunto no stitch
 
 ---
 
