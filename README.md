@@ -23,9 +23,11 @@ A aplicação visa resolver problemas operacionais enfrentados pela instituiçã
 
 ---
 
-## 📝 Evidências
+## 📝 Evidências e Documento de proposta de integração
 
 [Link das eviências](https://github.com/Engenharia-II-Fatec/TG/blob/main/EVIDENCIAS/Ata%20reuni%C3%A3o%20-%2013_06_2026.pdf)
+
+[Link do Documento de proposta](https://github.com/Engenharia-II-Fatec/TG/blob/main/PROPOSTA/ES2N-Proposta_v1.0.pdf)
 
 ---
 
