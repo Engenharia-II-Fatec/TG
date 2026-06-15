@@ -23,6 +23,12 @@ A aplicação visa resolver problemas operacionais enfrentados pela instituiçã
 
 ---
 
+## 📝 Evidências
+
+[Link das eviências](https://github.com/Engenharia-II-Fatec/TG/blob/main/EVIDENCIAS/Ata%20reuni%C3%A3o%20-%2013_06_2026.pdf)
+
+---
+
 ## 🎯 Objetivos do Sistema
 
 - 📅 Centralizar o **agendamento de aulas**
