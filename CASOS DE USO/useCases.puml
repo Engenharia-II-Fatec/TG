@@ -2,53 +2,39 @@
 left to right direction
 
 ' --- ATORES ---
-' Atores do lado esquerdo
 actor "Administrador" as Admin
 actor "Professor" as Professor
-
-' Ator Superior e Inferior
 actor "Aluno" as Aluno
 actor "Responsável" as Responsavel
-
-' Ator do lado direito
 actor "Secretaria" as Secretaria
 
 ' --- LIMITE DO SISTEMA ---
 rectangle "Sistema Espaço Lição de Casa" {
-    
-    ' Casos de Uso - Coluna Esquerda
+
     usecase "Realizar Pagamento" as UC1
     usecase "Acompanhar evolução do aluno" as UC2
     usecase "Agendar aula" as UC3
     usecase "Visualizar agenda de aula" as UC4
-    usecase "Cadastrar Disciplina" as UC5
-    usecase "Cadastrar plano de aula" as UC6
-    
-    ' Casos de Uso - Coluna Centro/Direita
-    usecase "Cadastrar responsável" as UC7
-    usecase "Cadastrar Aluno" as UC8
-    usecase "Cadastrar Professor" as UC9
+
+    ' --- CADASTROS UNIFICADOS (3 balões) ---
+    usecase "Cadastrar Disciplina,\nPlano de aula e Professor" as UCCadAcad
+    usecase "Cadastrar Aluno\ne Responsável" as UCCadPessoas
+    usecase "Cadastrar Questionário" as UCCadQuest
+
     usecase "Gerenciar Financeiro" as UC10
     usecase "Gerenciar Dashboard Gerencial" as UC11
     usecase "Responder questionário" as UC12
     usecase "Gerenciar disponibilidade de horário" as UC13
-    usecase "Cadastrar questionário" as UC14
-    
-    ' Agrupamento para forçar a proximidade visual
-    together {
-        usecase "Cancelar aula" as UC15
-        usecase "Enviar notificação de cancelamento" as UCAuxA
-    }
-    
-    ' Casos de uso avulsos
-    usecase "Gerar relatório" as UCAuxB
 
+    usecase "Cancelar aula" as UC15
+    usecase "Enviar notificação de cancelamento" as UCAuxA
+    usecase "Gerar relatório" as UCAuxB
 }
 
 ' --- RELACIONAMENTOS (ASSOCIAÇÕES) ---
 Responsavel --> UC1
-UC2 <-- Responsavel
-UC4 <-- Responsavel
+Responsavel --> UC2
+Responsavel --> UC4
 
 Aluno --> UC1
 Aluno --> UC2
@@ -57,31 +43,26 @@ Aluno --> UC4
 Aluno --> UC12
 Aluno --> UC15
 
-UC2  <-- Professor
-UC13 <-- Professor
-UC14 <-- Professor
-UC15 <-- Professor
+Professor --> UC2
+Professor --> UC13
+Professor --> UCCadQuest
+Professor --> UC15
 
 Secretaria --> UC3
-Secretaria --> UC7
-Secretaria --> UC8
+Secretaria --> UCCadPessoas
 Secretaria --> UC10
 Secretaria --> UC11
 
 Admin --> UC4
-Admin --> UC5
-Admin --> UC6
-Admin --> UC7
-Admin --> UC8
-Admin --> UC9
+Admin --> UCCadAcad
+Admin --> UCCadPessoas
+Admin --> UCCadQuest
 Admin --> UC10
 Admin --> UC11
 Admin --> UC13
-Admin --> UC14
 
 ' --- RELACIONAMENTOS ESPECIAIS (INCLUDE / EXTEND) ---
-' Utilizando a notação pontilhada padrão (..>) para melhorar o fluxo do layout
-UC15 ..> UCAuxA : <<include>>
-UC10 ..> UCAuxB : <<extend>>
+UC15 .down.> UCAuxA : <<include>>
+UC10 .down.> UCAuxB : <<extend>>
 
 @enduml
